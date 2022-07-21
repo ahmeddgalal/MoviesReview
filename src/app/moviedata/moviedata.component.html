@@ -1,0 +1,74 @@
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 gy-3">
+  <div class="col d-flex align-items-center">
+    <div class="item text-center">
+      <h2 class="item-title">{{ trendingName }}</h2>
+      <h5 class="item-sub t-light">Watch Now On Movies Review</h5>
+    </div>
+  </div>
+  <ng-container *ngIf="loading else spin ">
+    <div
+      *ngFor="let movie of movies"
+      class="col"
+      [attr.data-aos]="animationName"
+      data-aos-duration="1500"
+      routerLink="/details/{{movie.id}}/{{movie.media_type??'movie'}}"
+    >
+      <div class="card text-center h-100">
+        <!-- Start Rating Item -->
+        <div class="rating position-absolute top-0 end-0">
+          <i
+            class="fa-solid fa-star"
+            [style]="
+              movie.vote_average == 0
+                ? ''
+                : ratString +
+                  movie.vote_average * 10 +
+                  '% , transparent ' +
+                  (100 - movie.vote_average * 10) +
+                  '%'
+            "
+          ></i>
+          <span class="fw-bold small ms-1">{{
+            movie.vote_average.toString().slice(0, 3)
+          }}</span>
+        </div>
+        <!-- End Rating Item -->
+        <img
+          onerror="this.onerror=null;this.src='./assets/download.png'"
+          class="card-img-top w-100 movies-img"
+          [src]="imgPath + movie.backdrop_path"
+          alt="movie photo"
+        />
+        <!-- Start Card Data -->
+        <div class="card-body">
+          <h6 class="card-title text-capitalize">
+            {{ movie.title ?? movie.name }}
+          </h6>
+          <p class="card-subtitle small t-light text-uppercase">
+            {{ movie.media_type }}
+          </p>
+
+          <p class="card-text my-2 t-light">{{ movie.overview }}</p>
+        </div>
+        <div class="card-footer hstack justify-content-between">
+          <h6 class="small mb-0">
+            Vote Count: <span class="t-light">{{ movie.vote_count }}</span>
+          </h6>
+          <h6 class="small mb-0">
+            First Date:
+            <span class="t-light">
+              {{ movie.first_air_date ?? movie.release_date }}</span
+            >
+          </h6>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+<ng-template #spin>
+  <h2
+    class="text-center text-secondary position-absolute top-50 start-50 translate-middle"
+  >
+    <i class="fas fa-spinner fa-spin fa-3x" style="--fa-animation-duration: 1.2s;" ></i>
+  </h2>
+</ng-template>

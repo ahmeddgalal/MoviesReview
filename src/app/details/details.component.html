@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="text-center h-100">
+        <!-- Start Rating Item -->
+        <div class="rating position-absolute top-0 end-0">
+          <span class="fw-bold small ms-1">{{
+            movieDetails.vote_average
+          }}</span>
+        </div>
+        <!-- End Rating Item -->
+        <img
+          onerror="this.onerror=null;this.src='./assets/download.png'"
+          class="card-img-top w-100"
+          [src]="imgPath + movieDetails.poster_path"
+          alt="movie photo"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <!-- Start Card Data -->
+    <div class="card-body">
+      <h2 class="card-title text-center text-capitalize">
+        {{ movieDetails.title ?? movieDetails.name }}
+      </h2>
+      <p class="my-2 t-light">{{ movieDetails.overview }}</p>
+    </div>
+    <div class="card-footer hstack justify-content-between">
+      <h6 class="small mb-0">
+        Vote Count: <span class="t-light">{{ movieDetails.vote_count }}</span>
+      </h6>
+      <h6 class="small mb-0">
+        First Date:
+        <span class="t-light">
+          {{ movieDetails.first_air_date ?? movieDetails.release_date }}</span
+        >
+      </h6>
+    </div>
+  </div>
+</div>

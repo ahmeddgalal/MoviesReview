@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg bg-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand text-reset" routerLink="/trending">
+      <h1 class="fs-5 mb-0">
+        <i class="fa-solid fa-clapperboard logo-icon me-2 fa-sm"></i>
+        <span class="fw-bold">Movies</span>Review
+      </h1>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fa-solid fa-bars text-white"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="/trending"
+            routerLinkActive="active"
+            >Trending</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="/movies"
+            routerLinkActive="active"
+            >Movies</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="/tvshow"
+            routerLinkActive="active"
+            >Tv Show</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="/popular"
+            routerLinkActive="active"
+            >Popular</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="/nowplaying"
+            routerLinkActive="active"
+            >Now Playing</a
+          >
+        </li>
+      </ul>
+      <div class="search">
+        <input
+          #searchInput
+          (input)="getSearch(searchInput.value)"
+          routerLink="/search"
+          type="search"
+          class="form-control form-control-sm my-2 m-lg-0"
+          placeholder="Search..."
+        />
+      </div>
+    </div>
+  </div>
+</nav>

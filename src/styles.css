@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500;600;700;800;900&display=swap");
+:root {
+  --main-color: #081b27;
+  --second-color: #172c3a;
+  --nav-color: #0c2738;
+  --color-white: #fff;
+  --color-light: #899ead;
+  --orang-color: #f1b722;
+  --transition: all 0.4s linear;
+}
+body {
+  font-family: "Catamaran", sans-serif;
+  background-color: var(--main-color);
+  color: var(--color-white);
+  overflow-x: hidden;
+}
+.t-light {
+  color: var(--color-light);
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--nav-color);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--orang-color);
+  border-radius: 10px;
+  box-shadow: 0 0 5px 0 inset rgb(0 0 0 / 0.5);
+}
+.card {
+  background-color: var(--second-color) !important;
+  cursor: pointer;
+  filter: grayscale(.5);
+  transition: all .5s;
+}
+.card:hover {
+  filter: grayscale(0) drop-shadow(0 0 15px rgb(0 0 0 / .5));
+  transform: scale(1.05);
+}
+.card-text {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  overflow: hidden;
+  background-color: var(--nav-color);
+  text-transform: capitalize;
+  border-radius: 10px;
+  border: 1px solid rgb(0 0 0 / 0.1);
+  padding: 10px 10px 0;
+}
+.fa-star {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px var(--color-light);
+  -webkit-text-fill-color: transparent;
+}
+.rating {
+  padding: 5px;
+  border-radius: 0 0 5px 5px;
+  background-color: rgb(0 0 0 / 0.8);
+}
+.movies-img {
+  aspect-ratio: 4/3;
+}
